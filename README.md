@@ -1,3 +1,4 @@
 # dotfiles
 config file
- my own config
+
+my own config for arch
