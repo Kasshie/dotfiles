@@ -88,13 +88,13 @@ _open_files_for_editing() {
 
 
 alias update='doas pacman -Syyuu'
-
 alias kden='~/kdenlive-21.12.0-x86_64.appimage'
-
-# alias vim='nvim'
-
 alias sudo='doas'
 alias ,='clear'
 alias q='exit'
+alias ..='cd ..'
 
+shopt -s autocd
+
+neofetch
 PS1='\[\033[032m\][ \w ] \[\033[31m\]>:|\[\033[1;37m\]'
