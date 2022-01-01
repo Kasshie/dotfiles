@@ -88,7 +88,6 @@ _open_files_for_editing() {
 
 
 alias update='doas pacman -Syyuu'
-alias kden='~/kdenlive-21.12.0-x86_64.appimage'
 alias sudo='doas'
 alias ,='clear'
 alias q='exit'
