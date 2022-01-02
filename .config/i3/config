@@ -403,4 +403,5 @@ bindsym $mod+m exec minecraft-launcher
 
 bindsym $mod+F12 exec reboot
 
+for_window [class="Nitrogen" instance="nitrogen"] floating enable
 
