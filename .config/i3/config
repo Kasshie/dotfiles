@@ -15,15 +15,13 @@ workspace_layout default
 # extra options for windows: #
 ##############################
 
-#border indicator on windows:
-new_window pixel 1
 
 # thin borders
 # hide_edge_borders both
 
 # Set inner/outer gaps
-gaps inner 6
-gaps outer 3
+gaps inner 3
+gaps outer 6
 
 
 
@@ -138,6 +136,7 @@ mode "resize" {
 # back to normal: Enter or Escape
 	bindsym Return mode "default"
         bindsym Escape mode "default"
+	bindsym $mod+r mode "default"
 }
 
 bindsym $mod+r mode "resize"
@@ -168,7 +167,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # keybinding in fancy rofi (automated):
-bindsym F1 exec ~/.config/i3/scripts/keyhint-2
+#bindsym F1 exec ~/.config/i3/scripts/keyhint-2
 # alternative
 # keybinding list in editor:
 # bindsym $mod+F1 exec xed ~/.config/i3/keybindings
@@ -337,20 +336,27 @@ for_window [class="Pamac-manager"] floating enable
 ######################################
 
 
-set $bg-color              #611B15
-set $inactive-bg-color   #2f343f
-set $text-color          #f3f4f5
-set $inactive-text-color #676E7D
-set $urgent-bg-color     #E53935
-set $indicator 		 #005100
+# Define colors variables:
+set $darkbluetrans	#08052be6
+set $darkblue		#08052b
+set $lightblue		#5294e2
+set $urgentred		#e53935
+set $white		#ffffff
+set $black		#000000
+set $purple		#e345ff
+set $darkgrey		#383c4a
+set $grey		#b0b5bd
+set $mediumgrey		#8b8b8b
+set $yellowbrown	#e1b700
+set $red		#a80000
+set $green		#007B00
 
-
-# window colors
-#                       border              background         text                 indicator
-client.focused          $bg-color           $bg-color          $text-color          $indicator
-client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $indicator
-client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $indicator
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $indicat
+# define colors for windows:
+#class		        	border		bground		text		indicator	child_border
+client.focused		    $red	$darkblue	$white		$green		$red
+client.unfocused	    $black	$darkblue	$grey		$green		$darkgrey
+client.focused_inactive	$darkblue	$darkblue	$grey		$green		$black
+client.urgent		    $urgentred	$urgentred	$white		$green		$yellowbrown
 
 ############################################
 # bar settings (input comes from i3blocks) #
@@ -395,14 +401,19 @@ bindsym $mod+t exec rofi -show window \
 #exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 #remove titlebar of window
-#for_window [class="^.*"] border pixel 4
+for_window [class="^.*"] border pixel 2
 #CUSTOM KEYBINDS
 bindsym $mod+Shift+f exec firefox
-bindsym $mod+Shift+w exec nautilus
+bindsym $mod+Shift+w exec thunar 
 bindsym $mod+m exec minecraft-launcher
+bindsym $mod+z exec xfce4-terminal --drop-down
+bindsym $mod+n exec nitrogen
+bindsym $mod+Shift+d exec discord
 
 bindsym $mod+F12 exec reboot
 
 for_window [class="Minecraft Launcher" instance="minecraft-launcher"] floating enable
-for_window [class="Nitrogen" instance="nitrogen"] floating enable
+for_window [class="Minecraft Launcher" instance="minecraft-launcher"] resize set 1000 600
+for_window [class="Minecraft Launcher" instance="minecraft-launcher"] move position center
 
+for_window [class="Nitrogen" instance="nitrogen"] floating enable
