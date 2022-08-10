@@ -1,0 +1,12 @@
+configuration {
+    font: "Sourcecode Pro Regular 12";
+    
+}
+
+@import "~/.config/rofi/arc_dark_transparent_colors.rasi"
+
+window {
+    border: 0;
+    width: 400px;
+    height: 500px;
+}
